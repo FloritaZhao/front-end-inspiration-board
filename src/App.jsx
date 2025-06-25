@@ -1,68 +1,87 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
-import CardList from './components/CardList';
-import NewCardForm from './components/NewCardForm';
+import React, { useState } from "react";
+import BoardList from "./components/BoardList";
+import SelectedBoard from "./components/SelectedBoard";
+import NewBoardForm from "./components/NewBoardForm";
+import CardList from "./components/CardList";
+import NewCardForm from "./components/NewCardForm";
+import { mockBoards, mockCards } from "./mockData";
+import "./App.css";
 
-const initialCardData = [
-  { id: 1, message: "Hello from your first card!", likes: 0 },
-  { id: 2, message: "Keep pushing forward!", likes: 3 },
-  { id: 3, message: "You're doing great!", likes: 5 },
-  { id: 4, message: "React is fun!", likes: 2 },
-];
 
-function App() {
-  const [cardData, setCardData] = useState(initialCardData);
+const App = () => {
+  const [boards, setBoards] = useState(mockBoards);
+  const [selectedBoardId, setSelectedBoardId] = useState(null);
+  const [cards, setCards] = useState(mockCards);
+  const [showBoardForm, setShowBoardForm] = useState(false);
 
-  const handleLike = (id) => {
-    setCardData((prevData) =>
-      prevData.map((card) =>
-        card.id === id ? { ...card, likes: card.likes + 1 } : card
-      )
-    );
-  };
+  const selectedBoard = boards.find((b) => b.id === selectedBoardId);
+  const boardCards = cards.filter((c) => c.board_id === selectedBoardId);
 
-  const handleDelete = (id) => {
-  const confirmed = window.confirm("Are you sure you want to delete this card?");
-  if (confirmed) {
-    setCardData((prevData) => prevData.filter((card) => card.id !== id));
-  }
-};
-
-  const handleAddCard = (message) => {
-  const newCard = {
-    id: Date.now(),
-    message: message,
-    likes: 0,
-  };
-  setCardData((prevData) => [newCard, ...prevData]);
-};
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app-container">
+      <h1 className="title">📎 Inspiration Board</h1>
+
+      {/* first half */}
+      <div className="top-row">
+        <div className="column">
+          <h2>Boards</h2>
+          <BoardList
+            boards={boards}
+            setSelectedBoardId={setSelectedBoardId}
+          />
+        </div>
+
+        <div className="column">
+          <h2>Selected Board</h2>
+          <SelectedBoard selectedBoard={selectedBoard} />
+        </div>
+
+        <div className="column">
+          <h2>Create a New Board</h2>
+          <button onClick={() => setShowBoardForm(!showBoardForm)}>
+            {showBoardForm ? "Hide" : "Show"} New Board Form
+          </button>
+          {showBoardForm && (
+            <NewBoardForm
+              boards={boards}
+              setBoards={setBoards}
+              onSuccess={() => setShowBoardForm(false)}
+            />
+          )}
+        </div>
       </div>
-      <h1>Inspiration Board</h1>
 
-      <NewCardForm onAddCard={handleAddCard} />
+      {/* second half */}
+      {selectedBoard && (
+        <div className="bottom-row">
+          <div className="column">
+            <h2>Create a New Card</h2>
+            <NewCardForm
+              selectedBoardId={selectedBoardId}
+              onCardAdded={(card) => setCards([...cards, card])}
+            />
+          </div>
 
-      <CardList
-        cards={cardData}
-        onDeleteCard={handleDelete}
-        onLikeCard={handleLike}
-      />
-
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+          <div className="column">
+            <h2>Cards for {selectedBoard.title}</h2>
+            <CardList
+              cards={boardCards}
+              onUpdate={(newCard) =>
+                setCards((prev) =>
+                  prev.map((c) =>
+                    c.id === newCard.id ? newCard : c
+                  )
+                )
+              }
+              onDelete={(cardId) =>
+                setCards((prev) => prev.filter((c) => c.id !== cardId))
+              }
+            />
+          </div>
+        </div>
+      )}
+    </div>
   );
-}
+};
 
 export default App;

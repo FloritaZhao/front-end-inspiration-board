@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+// import PropTypes from "prop-types";
 import { useState } from 'react';
 import './NewCardForm.css';
 
@@ -26,8 +26,8 @@ const NewCardForm = ({ onAddCard }) => {
   );
 };
 
-NewCardForm.propTypes = {
-  onAddCard: PropTypes.func.isRequired,
-};
+// NewCardForm.propTypes = {
+//   onAddCard: PropTypes.func.isRequired,
+// };
 
 export default NewCardForm;
