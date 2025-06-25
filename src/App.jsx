@@ -57,8 +57,17 @@ const App = () => {
           <div className="column">
             <h2>Create a New Card</h2>
             <NewCardForm
-              selectedBoardId={selectedBoardId}
-              onCardAdded={(card) => setCards([...cards, card])}
+              onAddCard={(message) =>
+                setCards([
+                  ...cards,
+                  {
+                    id: Math.floor(Math.random() * 100000),  
+                    message,
+                    likes_count: 0,
+                    board_id: selectedBoardId
+                  }
+                ])
+              }
             />
           </div>
 
@@ -66,10 +75,12 @@ const App = () => {
             <h2>Cards for {selectedBoard.title}</h2>
             <CardList
               cards={boardCards}
-              onUpdate={(newCard) =>
-                setCards((prev) =>
-                  prev.map((c) =>
-                    c.id === newCard.id ? newCard : c
+              onLike={(cardId) =>
+                setCards((prevCards) =>
+                  prevCards.map((card) =>
+                    card.id === cardId
+                      ? { ...card, likes_count: card.likes_count + 1 }
+                      : card
                   )
                 )
               }
