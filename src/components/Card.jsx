@@ -25,14 +25,12 @@ const Card = ({ card, onDelete, onLike }) => {
   );
 };
 
+Card.propTypes = {
+  id: PropTypes.number.isRequired,
+  message: PropTypes.string.isRequired,
+  likesCount: PropTypes.number.isRequired,
+  onLike: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+};
+
 export default Card;
-
-
-// Card.propTypes = {
-//   card: PropTypes.shape({
-//     card_id: PropTypes.number.isRequired,
-//     message: PropTypes.string.isRequired,
-//     likes_count: PropTypes.number.isRequired,
-//   }).isRequired,
-//   onDelete: PropTypes.func.isRequired,
-// };
