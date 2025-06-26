@@ -4,23 +4,13 @@ import './Card.css';
 
 
 const Card = ({ card, onDelete, onLike }) => {
-  const handleLike = () => {
-    onLike(card.id);
-  };
-
-  const handleDelete = () => {
-    const confirmed = window.confirm("Are you sure you want to delete this card?");
-    if (confirmed) {
-    onDelete(card.id);
-      }
-  };
 
   return (
     <div className="card">
       <p className="card__message">{card.message}</p>
       <div className="card__actions"></div>
-      <button onClick={handleLike}>❤️ {card.likes_count}</button>
-      <button onClick={handleDelete}>🗑️ Delete</button>
+      <button onClick={() => onLike(card.id)}>❤️ {card.likes_count}</button>
+      <button onClick={() => onDelete(card.id)}>🗑️ Delete</button>
     </div>
   );
 };

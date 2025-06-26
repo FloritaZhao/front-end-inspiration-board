@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 
-const NewBoardForm = ({ setBoards, boards, onSuccess }) => {
+const NewBoardForm = ({ onSubmit }) => {
   const [title, setTitle] = useState("");
   const [owner, setOwner] = useState("");
   const [error, setError] = useState("");
@@ -14,16 +13,11 @@ const NewBoardForm = ({ setBoards, boards, onSuccess }) => {
       return;
     }
 
-    const newBoard = {
-      id: uuidv4(),
-      title: title.trim(),
-      owner: owner.trim(),
-    };
-    setBoards([...boards, newBoard]); 
+    onSubmit({ title: title.trim(), owner: owner.trim() });
+    
     setTitle("");
     setOwner("");
     setError("");
-    onSuccess(); 
   };
 
   return (
