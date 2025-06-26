@@ -19,10 +19,10 @@ export const addCard = (boardId, data) => {
   return axios.post(`${BACKEND}/boards/${boardId}/cards`, data);
 };
 
-export const likeCard = (boardId, cardId) => {
-  return axios.put(`${BACKEND}/boards/${boardId}/cards/${cardId}/like`);
+export const likeCard = (cardId) => {
+  return axios.patch(`${BACKEND}/cards/${cardId}/like`);
 };
 
-export const deleteCard = (boardId, cardId) => {
-  return axios.delete(`${BACKEND}/boards/${boardId}/cards/${cardId}`);
+export const deleteCard = (cardId) => {
+  return axios.delete(`${BACKEND}/cards/${cardId}`);
 };

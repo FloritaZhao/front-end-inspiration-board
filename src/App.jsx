@@ -56,7 +56,7 @@ const App = () => {
   };
 
   const handleLike = (cardId) => {
-    likeCard(selectedBoardId, cardId)
+    likeCard( cardId)
       .then(() => {
         setCards((prevCards) =>
           prevCards.map((card) =>
@@ -72,7 +72,7 @@ const App = () => {
   };
 
   const handleDelete = (cardId) => {
-    deleteCard(selectedBoardId, cardId)
+    deleteCard(cardId)
       .then(() => {
         setCards((prevCards) =>
           prevCards.filter((card) => card.id !== cardId)
