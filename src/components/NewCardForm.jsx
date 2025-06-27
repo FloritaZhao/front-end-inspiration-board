@@ -13,13 +13,18 @@ const NewCardForm = ({ onAddCard }) => {
     setMessage('');
   };
 
+  const handleChange = (e) => {
+    setMessage(e.target.value) 
+  }
+
   return (
     <form className="new-card-form" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Write your message..."
         value={message}
-        onChange={(e) => setMessage(e.target.value)}
+        onChange={handleChange}
+        maxLength={40}
       />
       <button type="submit">Add Card</button>
     </form>

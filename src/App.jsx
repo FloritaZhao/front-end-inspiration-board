@@ -1,21 +1,100 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import BoardList from "./components/BoardList";
 import SelectedBoard from "./components/SelectedBoard";
 import NewBoardForm from "./components/NewBoardForm";
 import CardList from "./components/CardList";
 import NewCardForm from "./components/NewCardForm";
-import { mockBoards, mockCards } from "./mockData";
 import "./App.css";
+import { fetchBoards, createBoard, fetchCards, addCard, likeCard, deleteCard } from "./Api";
 
 
 const App = () => {
-  const [boards, setBoards] = useState(mockBoards);
+  const [boards, setBoards] = useState([]);
   const [selectedBoardId, setSelectedBoardId] = useState(null);
-  const [cards, setCards] = useState(mockCards);
+  const [cards, setCards] = useState([]);
   const [showBoardForm, setShowBoardForm] = useState(false);
+  const [error, setError] = useState("");
+
+
+  useEffect(() => {
+    fetchBoards()
+      .then((res) => setBoards(res.data))
+      .catch((err) => {
+        console.error("loading board wrong", err);
+        setError("error, please try again");
+      });
+  }, []);
+
+  useEffect(() => {
+    if (!selectedBoardId) {
+      setCards([]);
+      return;
+    }
+    fetchCards(selectedBoardId)
+      .then((res) => setCards(res.data))
+      .catch((err) => {
+        console.error("loading card wrong", err);
+        setError("error, please try again");
+      });
+  }, [selectedBoardId]);
+
 
   const selectedBoard = boards.find((b) => b.id === selectedBoardId);
   const boardCards = cards.filter((c) => c.board_id === selectedBoardId);
+
+
+  const handleCreateBoard = ({ title, owner }) => {
+    createBoard({ title, owner })
+      .then((res) => {
+        setBoards([...boards, res.data]);
+        setShowBoardForm(false);
+      })
+      .catch((err) => {
+        console.error("Failed to create board", err);
+        setError("Unable to create board. Try again.");
+      });
+  };
+
+  const handleLike = (cardId) => {
+    likeCard( cardId)
+      .then(() => {
+        setCards((prevCards) =>
+          prevCards.map((card) =>
+            card.id === cardId
+              ? { ...card, likes_count: card.likes_count + 1 }
+              : card
+          )
+        );
+      })
+      .catch((err) => {
+        console.error("Failed to like card:", err);
+      });
+  };
+
+  const handleDelete = (cardId) => {
+    deleteCard(cardId)
+      .then(() => {
+        setCards((prevCards) =>
+          prevCards.filter((card) => card.id !== cardId)
+        );
+      })
+      .catch((err) => {
+        console.error("Failed to delete card:", err);
+      });
+  };
+
+  const handleAddCard = (message) => {
+    addCard(selectedBoardId, { message })
+      .then((res) => {
+        setCards((prev) => [...prev, res.data]);
+      })
+      .catch((err) => {
+        console.error("Error creating card:", err);
+        setError("Failed to create card.");
+      });
+  };
+
+
 
   return (
     <div className="app-container">
@@ -43,9 +122,7 @@ const App = () => {
           </button>
           {showBoardForm && (
             <NewBoardForm
-              boards={boards}
-              setBoards={setBoards}
-              onSuccess={() => setShowBoardForm(false)}
+              onSubmit={handleCreateBoard}
             />
           )}
         </div>
@@ -57,17 +134,8 @@ const App = () => {
           <div className="column">
             <h2>Create a New Card</h2>
             <NewCardForm
-              onAddCard={(message) =>
-                setCards([
-                  ...cards,
-                  {
-                    id: Math.floor(Math.random() * 100000),  
-                    message,
-                    likes_count: 0,
-                    board_id: selectedBoardId
-                  }
-                ])
-              }
+              selectedBoardId={selectedBoardId}
+              onAddCard={handleAddCard}
             />
           </div>
 
@@ -75,18 +143,8 @@ const App = () => {
             <h2>Cards for {selectedBoard.title}</h2>
             <CardList
               cards={boardCards}
-              onLike={(cardId) =>
-                setCards((prevCards) =>
-                  prevCards.map((card) =>
-                    card.id === cardId
-                      ? { ...card, likes_count: card.likes_count + 1 }
-                      : card
-                  )
-                )
-              }
-              onDelete={(cardId) =>
-                setCards((prev) => prev.filter((c) => c.id !== cardId))
-              }
+              onLike={handleLike}
+              onDelete={handleDelete}
             />
           </div>
         </div>
