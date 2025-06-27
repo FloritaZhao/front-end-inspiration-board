@@ -1,4 +1,5 @@
 import React from "react";
+import './SelectedBoard.css';
 
 const SelectedBoard = ({ selectedBoard }) => {
   if (!selectedBoard) {

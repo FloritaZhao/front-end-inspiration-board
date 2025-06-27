@@ -1,0 +1,75 @@
+
+.new-board-form {
+  padding: 1.5rem;
+  background-color: #fff1e6;      /* light peach background */
+  border: 2px solid #e4a07a;      /* soft peach border */
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.new-board-form h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #663c2f;                 /* dark peach-brown for contrast */
+}
+
+.new-board-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.new-board-form label {
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: #663c2f;
+}
+
+.new-board-form input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #e4a07a;
+  border-radius: 6px;
+  background-color: #ffe5d0;      /* peach note */
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.07);
+  transition: border-color 0.2s ease;
+}
+
+.new-board-form input:focus {
+  outline: none;
+  border-color: #ff914d;          /* deeper peach accent */
+}
+
+.new-board-form button {
+  margin-top: 1rem;
+  padding: 0.6rem;
+  background-color: #ffc6a1;      /* main peach button */
+  border: 1px solid #e4a07a;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #663c2f;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.new-board-form button:hover {
+  background-color: #ffb18c;      /* slightly darker on hover */
+  transform: rotate(1deg) scale(1.02);
+}
+
+.new-board-form p {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #704836;
+}
+
+.new-board-form p[style*="color: red"] {
+  color: red;
+  font-weight: bold;
+}

@@ -1,4 +1,6 @@
 import React from "react";
+import './BoardList.css';
+
 // import { mockBoards } from "../mockData";
 // import axios from "axios";
 
@@ -11,11 +13,11 @@ const BoardList = ({ boards, setSelectedBoardId }) => {
       <ul>
         {boards.map((board) => (
           <li key={board.id}>
-            <button
-              onClick={() => setSelectedBoardId(board.id)}
-              style={{ marginBottom: "5px" }}
-            >
-              {board.title} — <i>{board.owner}</i>
+            <button onClick={() => setSelectedBoardId(board.id)} className="board-button">
+              <div className="board-content">
+                <div className="board-title">{board.title}</div>
+                <div className="board-owner"><i>{board.owner}</i></div>
+              </div>
             </button>
           </li>
         ))}

@@ -1,0 +1,31 @@
+
+.selected-board {
+  padding: 1rem;
+  background-color: #f5f5dc; /* same corkboard background */
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected-board h3 {
+  background-color: #fffacd;
+  border: 1px solid #999;
+  border-radius: 10px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.selected-board h3:hover {
+  background-color: #ffff99;
+  transform: rotate(1deg) scale(1.02);
+}

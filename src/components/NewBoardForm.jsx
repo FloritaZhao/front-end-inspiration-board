@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import './NewBoardForm.css';
 
 const NewBoardForm = ({ setBoards, boards, onSuccess }) => {
   const [title, setTitle] = useState("");

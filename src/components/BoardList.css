@@ -1,0 +1,52 @@
+.board-button {
+  position: relative;
+  width: 140px;
+  height: 120px;
+  padding: 0.7rem;
+  background-color: #2e5e4e;            /* chalkboard green */
+  border: 3px solid #b98b68;            /* wood frame look */
+  border-radius: 6px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #f4f4f4;                       /* white chalk text */
+  font-family: 'Courier New', Courier, monospace;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  overflow: hidden;
+}
+
+.board-button:hover {
+  background-color: #356b57;
+  transform: scale(1.02);
+}
+
+.board-button .board-content {
+  padding-top: 1.2rem;
+}
+
+.board-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.board-list li {
+  margin-bottom: 1rem; /* Adds space between boards */
+}
+
+.board-content {
+  padding-top: 1.2rem;
+}
+
+.board-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.board-owner {
+  font-size: 0.85rem;
+  color: #dcdcdc; /* chalky faded white */
+}
