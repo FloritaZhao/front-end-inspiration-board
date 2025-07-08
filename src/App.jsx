@@ -18,6 +18,15 @@ const App = () => {
 
   useEffect(() => {
     fetchBoards()
+      // .then(res => {
+      //   console.log(res.data);
+      //   console.log(res.status, res.statusText);
+      //   if (typeof(res.data) !== 'object') {
+      //     const error = 'Response is not an array';
+      //     throw error
+      //   }
+      //   return res;
+      // })
       .then((res) => setBoards(res.data))
       .catch((err) => {
         console.error("loading board wrong", err);
