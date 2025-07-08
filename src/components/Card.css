@@ -1,6 +1,6 @@
 .card {
-  background-color: #fff176; /* bright sticky yellow */
-  border: 1px solid #fdd835; /* slightly darker edge */
+  background-color: #fff176; 
+  border: 1px solid #fdd835;
   border-radius: 8px;
   box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);
   padding: 1rem;
@@ -11,7 +11,7 @@
   color: #333;
   transition: transform 0.2s ease;
   position: relative;
-  transform: rotate(-1.5deg); /* gives note a casual look */
+  transform: rotate(-1.5deg);
 }
 
 .card:hover {
@@ -35,7 +35,7 @@
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.9rem;
-  background-color: #fbc02d; /* button matches sticky tone */
+  background-color: #fbc02d;
   color: #333;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   transition: background-color 0.2s;

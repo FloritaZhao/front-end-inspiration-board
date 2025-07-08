@@ -1,8 +1,8 @@
 
 .new-board-form {
   padding: 1.5rem;
-  background-color: #fff1e6;      /* light peach background */
-  border: 2px solid #e4a07a;      /* soft peach border */
+  background-color: #fff1e6;    
+  border: 2px solid #e4a07a;     
   border-radius: 10px;
   max-width: 500px;
   margin: 20px auto;
@@ -14,7 +14,7 @@
   text-align: center;
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: #663c2f;                 /* dark peach-brown for contrast */
+  color: #663c2f;                 
 }
 
 .new-board-form form {
@@ -34,20 +34,20 @@
   font-size: 1rem;
   border: 1px solid #e4a07a;
   border-radius: 6px;
-  background-color: #ffe5d0;      /* peach note */
+  background-color: #ffe5d0;     
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.07);
   transition: border-color 0.2s ease;
 }
 
 .new-board-form input:focus {
   outline: none;
-  border-color: #ff914d;          /* deeper peach accent */
+  border-color: #ff914d;         
 }
 
 .new-board-form button {
   margin-top: 1rem;
   padding: 0.6rem;
-  background-color: #ffc6a1;      /* main peach button */
+  background-color: #ffc6a1;     
   border: 1px solid #e4a07a;
   border-radius: 8px;
   font-weight: bold;
@@ -59,7 +59,7 @@
 }
 
 .new-board-form button:hover {
-  background-color: #ffb18c;      /* slightly darker on hover */
+  background-color: #ffb18c; 
   transform: rotate(1deg) scale(1.02);
 }
 

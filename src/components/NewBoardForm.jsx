@@ -44,7 +44,7 @@ const NewBoardForm = ({ onSubmit }) => {
 
         <p>Preview: {title || owner ? `${title} - ${owner}` : "-"}</p>
 
-        <button type="submit">Submit Query</button>
+        <button type="submit">Submit</button>
         {error && <p style={{ color: "red" }}>{error}</p>}
       </form>
     </div>

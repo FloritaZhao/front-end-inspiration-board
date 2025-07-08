@@ -1,7 +1,7 @@
 
 .selected-board {
   padding: 1rem;
-  background-color: #f5f5dc; /* same corkboard background */
+  background-color: #f5f5dc;
   border: 2px solid #ccc;
   border-radius: 10px;
   max-width: 500px;
