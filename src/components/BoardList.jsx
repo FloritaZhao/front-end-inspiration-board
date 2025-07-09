@@ -6,7 +6,7 @@ const BoardList = ({ boards,  setSelectedBoardId }) => {
     <div className="board-list">
       {/* <h3>Boards</h3> */}
       <ul>
-        {boards.map((board) => (
+        {boards.toReversed().map((board) => (
           <li key={board.id}>
             <button onClick={() => setSelectedBoardId(board.id)} className="board-button">
               <div className="board-content">
