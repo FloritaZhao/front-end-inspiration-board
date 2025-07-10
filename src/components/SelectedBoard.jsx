@@ -9,7 +9,8 @@ const SelectedBoard = ({ selectedBoard }) => {
   return (
     <div className="selected-board">
       <h3>
-        {selectedBoard.title} — {selectedBoard.owner}
+        <h3>{selectedBoard.title}</h3>
+        <em>{selectedBoard.owner}</em>
       </h3>
     </div>
   );

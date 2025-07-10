@@ -1,4 +1,29 @@
 .card {
+  background-color: #fff3f3;
+  border: 2px solid #ffc2c2;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.card__message {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.card__actions button {
+  margin-right: 0.8rem;
+  background-color: #ff8b8b;
+}
+
+.card__actions button:hover {
+  background-color: #e57070;
+}
+
+
+
+
+/* .card {
   background-color: #fff176; 
   border: 1px solid #fdd835;
   border-radius: 8px;
@@ -44,4 +69,4 @@
 .card__actions button:hover {
   background-color: #ffe082;
 }
-
+ */

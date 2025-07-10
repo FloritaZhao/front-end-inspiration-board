@@ -1,4 +1,48 @@
 
+
+.selected-board {
+  background-color: #fffbec;
+  padding: 1rem;
+  border: 3px solid #ffc107;
+  border-radius: 0.75rem;
+  font-size: 1.2rem;
+}
+
+.selected-board h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.selected-board em {
+  font-style: italic;
+  color: #1c2b35;
+}
+
+/* NewBoardForm.css */
+.new-board-form input {
+  display: block;
+  margin-bottom: 0.8rem;
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid #ccc;
+}
+
+.new-board-form input:focus {
+  outline: none;
+  border-color: #6c63ff;
+}
+
+.new-board-form button {
+  background-color: #6c63ff;
+  color: #fff;
+}
+
+
+
+
+/* 
 .selected-board {
   padding: 1rem;
   background-color: #f5f5dc;
@@ -28,4 +72,4 @@
 .selected-board h3:hover {
   background-color: #ffff99;
   transform: rotate(1deg) scale(1.02);
-}
+} */

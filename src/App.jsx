@@ -6,6 +6,9 @@ import CardList from "./components/CardList";
 import NewCardForm from "./components/NewCardForm";
 import "./App.css";
 import { fetchBoards, createBoard, fetchCards, addCard, likeCard, deleteCard } from "./Api";
+import lightBulb from './assets/lightbulb.svg';
+import pinToBoard from './assets/pin-to-board.svg';
+
 
 
 const App = () => {
@@ -158,6 +161,16 @@ const App = () => {
           </div>
         </div>
       )}
+      <img
+        src={lightBulb}
+        alt="lightbulb"
+        className="illustration-top-right"
+      />
+      <img
+        src={pinToBoard}
+        alt="pin-to-board"
+        className="illustration-bottom-left"
+      />
     </div>
   );
 };
