@@ -11,11 +11,6 @@ A playful, responsive digital board app where users can create themed boards, po
 - Toggle visibility of board forms
 - Friendly, whimsical design elements with fixed layout proportions
 
-## 📸 Screenshot
-
-![Inspiration Board UI](./screenshot.png)  
-*A snapshot of the main board layout with selected board and card input.*
-
 ## 🚀 Tech Stack
 
 - **Frontend**: React, JSX, CSS Flexbox
