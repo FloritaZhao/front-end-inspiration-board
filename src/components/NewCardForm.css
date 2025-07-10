@@ -11,6 +11,8 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 1rem;
+  background-color: #fff;
+  color: #2b1e1e; 
 }
 
 .new-card-form button {

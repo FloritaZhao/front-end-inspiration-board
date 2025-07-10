@@ -1,14 +1,15 @@
 .card {
   background-color: #fff3f3;
   border: 2px solid #ffc2c2;
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 0.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
 }
 
 .card__message {
   font-size: 1.1rem;
   margin-bottom: 0.8rem;
+  color: #d72828; 
 }
 
 .card__actions button {
